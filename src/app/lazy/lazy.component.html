@@ -1,0 +1,21 @@
+<p-table [value]="pokemons">
+
+  <ng-template pTemplate="header">
+    <tr>
+      <th>NAME</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-row>
+    <tr>
+      <td>{{ row.name }}</td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="footer" let-yourColumnArrayVaraible>
+
+  </ng-template>
+  <ng-template pTemplate="summary">
+
+  </ng-template>
+</p-table>
+
+<button style="cursor: pointer;" (click)="onLoadLazyComponent()" >Lazy load component</button>
