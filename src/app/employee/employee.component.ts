@@ -9,6 +9,7 @@ import { LazyServices } from '../services/lazy.service';
 export class EmployeeComponent implements OnInit {
 
   lazyService: LazyServices;
+  loadSharedComponent = false;
   constructor(injector: Injector) {
     this.lazyService = injector.get(LazyServices);
   }

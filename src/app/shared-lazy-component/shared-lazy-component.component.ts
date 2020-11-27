@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -9,15 +9,23 @@ import { map } from 'rxjs/operators';
 })
 export class SharedLazyComponentComponent implements OnInit {
 
-  constructor(private HttpClient: HttpClient) { }
+
+  title: string;
+
+  @Output() toggleEvent = new EventEmitter<any>();
+
+  constructor(private HTTP: HttpClient) { }
 
   ngOnInit(): void {
     console.log('SharedLazyComponentComponent init');
 
-    this.HttpClient.get('https://pokeapi.co/api/v2/pokemon?limit=100&offset=200').pipe(map(json => json)).subscribe(res => {
+    this.HTTP.get('https://pokeapi.co/api/v2/pokemon?limit=100&offset=200').pipe(map(json => json)).subscribe(res => {
       console.log(res);
     });
+  }
 
+  onToggle(): void {
+    this.toggleEvent.emit('hola!!!');
   }
 
 }
