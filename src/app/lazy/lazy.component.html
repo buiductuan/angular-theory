@@ -1,0 +1,32 @@
+<p-table [value]="pokemons">
+
+  <ng-template pTemplate="header">
+    <tr>
+      <th>NAME</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-row>
+    <tr>
+      <td>{{ row.name }}</td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="footer" let-yourColumnArrayVaraible>
+
+  </ng-template>
+  <ng-template pTemplate="summary">
+
+  </ng-template>
+</p-table>
+
+<button pButton type="button" (click)="onLoadLazyComponent()" label="Lazy load component"></button>
+
+<button pButton class="p-button-danger" type="button" (click)="onLoadLazyComponentTemplate()" label="Lazy load component template"></button>
+
+<div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis dolores minus recusandae quo maxime!
+  Distinctio temporibus aut eveniet veniam ut, quo cum nostrum sit, asperiores provident vel ratione ex libero?</div>
+
+<div>
+  <ng-template #cmpLazy></ng-template>
+</div>
+
+<div id="toggleLazyChildComponent"></div>
